@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificação</title>
+    <link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Classificação</h1>
+
+        <form method="POST">
+            <div class="row">
+                <select name="curso">
+                    <option value="">Selecione o Quadro</option>
+                    <option value="CFOAv">Curso de Formação de Oficiais Aviadores</option>
+                    <option value="CFOInt">Curso de Formação de Oficiais Intendentes</option>
+                    <option value="CFOInf">Curso de Formação de Oficiais de Infantaria</option>
+                </select>
+
+                <select name="ano">
+                    <option value="">Selecione o Ano</option>
+                    <option value="Opcao1">1º Ano</option>
+                    <option value="Opcao2">2º Ano</option>
+                    <option value="Opcao3">3º Ano</option>
+                    <option value="Opcao4">4º Ano</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <input type="text" name="pesquisa" placeholder="Pesquisar arquivos de disciplinas">
+                <button type="button" class="btn">🔍</button>
+                <button type="button" class="btn">Inserir</button>
+            </div>
+
+            <textarea name="texto" placeholder="Arquivos"></textarea>
+
+            <button type="submit" class="btn enviar">Enviar</button>
+        </form>
+
+        <div class="resultado">
+         
+        </div>
+    </div>
+</body>
+</html>
