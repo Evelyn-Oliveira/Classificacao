@@ -1,0 +1,21 @@
+# Ambiente virtual
+venv/
+ENV/
+env/
+
+# Arquivos do Django
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Arquivos de sistema
+.DS_Store
+*.log
+
+# Arquivos de cache
+*.pot
+*.py[cod]
+*$py.class
+
+# Arquivos de migração gerados automaticamente
+app/migrations/
