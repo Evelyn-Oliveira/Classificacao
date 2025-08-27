@@ -3,7 +3,7 @@
 {% block title %}Classificação{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Classificação</h1>
+<h1 class="mb-4">Sistema de Classificação</h1>
 
 <form method="POST" enctype="multipart/form-data" class="card p-4 shadow">
   {% csrf_token %}
@@ -36,16 +36,16 @@
   <input type="file" id="fileInput" accept=".csv,.xlsx" style="display:none">
 
   <table id="tabelaArquivos" class="table table-striped mt-3">
-    <thead class="table-dark">
+      <thead class="my-thead">
       <tr>
         <th>Arquivo</th>
-        <th>Ações</th>
+        <th>Ação</th>
       </tr>
     </thead>
     <tbody id="listaArquivos"></tbody>
   </table>
 
-  <button type="submit" class="btn btn-success mt-3">Enviar</button>
+  <button type="submit" class="btn btn-success mt-3">Enviar Arquivos</button>
 </form>
 
 <div class="resultado mt-4"></div>

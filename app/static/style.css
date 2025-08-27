@@ -1,15 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #457ca0;
+    background-color:  #8fd2ff;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
     text-align: center;
     background: #457ca0;
     padding: 20px;
@@ -56,4 +57,13 @@ textarea {
 .enviar {
     display: block;
     margin: 15px auto;
+}
+
+.minha-navbar {
+  background-color: #0A1828;
+}
+
+.my-thead th {
+  background-color: #178582 !important;
+  color: #fff;
 }
