@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    align-items: center;
+    /* align-items: center;*/
     text-align: center;
     background: #457ca0;
     padding: 20px;
@@ -50,6 +50,15 @@ textarea {
     margin: 5px;
 }
 
+.btn_2 {
+    padding: 10px 2px;
+    border: none;
+    border-radius: 8px;
+    background: #2d3e50;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
 .btn:hover {
     background: #1c2833;
 }
@@ -63,7 +72,46 @@ textarea {
   background-color: #0A1828;
 }
 
+#tabelaArquivos {
+  border-collapse: separate;
+  border-spacing: 8px; /* diminui o espaço entre colunas */
+  width: 100%;
+  border: 2px solid #178582;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 14px; /* deixa o texto menor */
+}
+
 .my-thead th {
   background-color: #178582 !important;
   color: #fff;
+  padding: 6px 10px; /* menos altura e largura */
+  border: 2px solid #178582;
+}
+
+/* canto superior esquerdo */
+.my-thead th:first-child {
+  border-top-left-radius: 12px;
+}
+
+/* canto superior direito */
+.my-thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+#tabelaArquivos td {
+  padding: 2px 6px; /* reduz o tamanho do conteúdo */
+  border: 2px solid #178582;
+  line-height: 1.2;      /* controla a altura do texto */
+  vertical-align: middle; /* centraliza conteúdo */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px;
+        padding: 10px;
+    }
 }

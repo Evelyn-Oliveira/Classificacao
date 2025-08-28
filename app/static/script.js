@@ -1,11 +1,11 @@
-let arquivosSelecionados = [];   // Arquivos que já foram confirmados
-let arquivoPendente = null;      // Arquivo aguardando o clique em "Inserir"
+let arquivosSelecionados = [];   // Arquivos confirmados
+let arquivoPendente = null;      // Arquivo aguardando "Inserir"
 
 const fileInput = document.getElementById('fileInput');
 const pesquisaInput = document.getElementById('pesquisa');
 const lista = document.getElementById('listaArquivos');
 
-// Ao escolher arquivo
+// Escolher arquivo
 fileInput.addEventListener('change', (event) => {
     const novosArquivos = Array.from(event.target.files);
 
@@ -14,10 +14,10 @@ fileInput.addEventListener('change', (event) => {
         pesquisaInput.value = arquivoPendente.name;
     }
 
-    fileInput.value = ""; // permite escolher o mesmo arquivo de novo
+    fileInput.value = ""; // permite escolher o mesmo arquivo novamente
 });
 
-// Ao clicar em "Inserir"
+// Inserir arquivo
 function inserirArquivos() {
     if (!arquivoPendente) {
         alert("Nenhum arquivo selecionado!");
@@ -26,23 +26,30 @@ function inserirArquivos() {
 
     if (arquivosSelecionados.some(arq => arq.name === arquivoPendente.name)) {
         alert("Esse arquivo já foi inserido!");
-        
     } else {
+        // Salva o arquivo no array e pega o índice
         arquivosSelecionados.push(arquivoPendente);
+        const index = arquivosSelecionados.length - 1;
 
         // Cria linha na tabela
         const tr = document.createElement('tr');
 
-        // Coluna com nome
+        // Nome do arquivo
         const tdNome = document.createElement('td');
         tdNome.textContent = arquivoPendente.name;
         tr.appendChild(tdNome);
 
-        // Coluna com botão excluir
+        // Botão excluir
         const tdAcoes = document.createElement('td');
         const btnExcluir = document.createElement('button');
         btnExcluir.textContent = "Excluir";
-        btnExcluir.onclick = () => excluirArquivo(arquivoPendente.name, tr);
+        btnExcluir.classList.add("btn_2", "btn-danger", "btn-sm");
+
+        // Captura o índice na hora da criação
+        btnExcluir.onclick = () => {
+            excluirArquivo(index, tr);
+        };
+
         tdAcoes.appendChild(btnExcluir);
         tr.appendChild(tdAcoes);
 
@@ -53,11 +60,9 @@ function inserirArquivos() {
     arquivoPendente = null;
 }
 
-// Função para excluir
-function excluirArquivo(nomeArquivo, linha) {
-    // Remove do array
-    arquivosSelecionados = arquivosSelecionados.filter(arq => arq.name !== nomeArquivo);
-
-    // Remove da tabela
+// Função para excluir pelo índice
+function excluirArquivo(index, linha) {
+    arquivosSelecionados.splice(index, 1);
+   /* alert("oiiii") */ // remove só esse
     linha.remove();
 }

@@ -3,31 +3,38 @@
 {% block title %}Classificação{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Sistema de Classificação</h1>
+<h2 class="mb-4">Sistema de Classificação</h2>
 
-<form method="POST" enctype="multipart/form-data" class="card p-4 shadow">
+<form method="POST" enctype="multipart/form-data" class="card p-4 shadow mx-auto" >
   {% csrf_token %}
-  
-  <div class="row mb-3">
+
+  <!-- Linha de selects alinhados ao input de pesquisa -->
+  <div class="row mb-3 gx-2">
     <div class="col-md-6">
-      <select name="curso" class="form-select">
-        <option value="">Selecione o Quadro</option>
-        <option value="CFOAv">Curso de Formação de Oficiais Aviadores</option>
-        <option value="CFOInt">Curso de Formação de Oficiais Intendentes</option>
-        <option value="CFOInf">Curso de Formação de Oficiais de Infantaria</option>
-      </select>
+
+        <select name="curso" class="form-select">
+          <option value="">Selecione o Quadro</option>
+          <option value="CFOAv">Curso de Formação de Oficiais Aviadores</option>
+          <option value="CFOInt">Curso de Formação de Oficiais Intendentes</option>
+          <option value="CFOInf">Curso de Formação de Oficiais de Infantaria</option>
+        </select>
+
     </div>
+
     <div class="col-md-6">
-      <select name="ano" class="form-select">
-        <option value="">Selecione o Ano</option>
-        <option value="Opcao1">1º Ano</option>
-        <option value="Opcao2">2º Ano</option>
-        <option value="Opcao3">3º Ano</option>
-        <option value="Opcao4">4º Ano</option>
-      </select>
+ 
+        <select name="ano" class="form-select">
+          <option value="">Selecione o Ano</option>
+          <option value="Opcao1">1º Ano</option>
+          <option value="Opcao2">2º Ano</option>
+          <option value="Opcao3">3º Ano</option>
+          <option value="Opcao4">4º Ano</option>
+        </select>
+      
     </div>
   </div>
 
+  <!-- Campo de pesquisa de arquivos -->
   <div class="input-group mb-3">
     <input type="text" id="pesquisa" placeholder="Pesquisar Arquivos de Disciplinas" class="form-control" readonly>
     <button type="button" onclick="document.getElementById('fileInput').click()" class="btn btn-outline-secondary">📂</button>
@@ -35,14 +42,16 @@
   </div>
   <input type="file" id="fileInput" accept=".csv,.xlsx" style="display:none">
 
+  <!-- Tabela de arquivos -->
+  
   <table id="tabelaArquivos" class="table table-striped mt-3">
       <thead class="my-thead">
-      <tr>
-        <th>Arquivo</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody id="listaArquivos"></tbody>
+        <tr>
+          <th>Arquivo</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody id="listaArquivos"></tbody>
   </table>
 
   <button type="submit" class="btn btn-success mt-3">Enviar Arquivos</button>
